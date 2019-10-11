@@ -1,5 +1,6 @@
 package datos;
 
+import java.net.InetAddress;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,6 +38,8 @@ public class Dt_Usuario {
 				tus.setPwd_tmp(rsUsuario.getString("pwd_tmp"));
 				tus.setEmail(rsUsuario.getString("email"));
 				tus.setEstado(rsUsuario.getInt("estado"));
+				String hostname = InetAddress.getLocalHost().getHostName();
+				
 				
 				listarUsuario.add(tus);
 			}
