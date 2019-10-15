@@ -1,6 +1,8 @@
    <%  
       //String baseUrl =  "http://" + request.getServerName() + request.getServerPort();
-      String pat = request.getContextPath();          
+      String pat = request.getContextPath();    
+      
+      String jspName = this.getClass().getSimpleName().replaceAll("_", ".");
    %>
 
   <!-- Main Sidebar Container -->
@@ -41,7 +43,7 @@
               <li class="nav-item">
                 <a href="./index.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p><%=jspName %></p>
                 </a>
               </li>
               
@@ -55,7 +57,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<%=pat %>/pages/seguridad/tblUsuarios.jsp" class="nav-link active">
+                <a id="usersNav" href="<%=pat %>/pages/seguridad/tblUsuarios.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Usuarios</p>
                 </a>
@@ -63,7 +65,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="<%=pat %>/pages/widgets.html" class="nav-link">
+            <a href="<%=pat %>/pages/widgets.html" class="nav-link active">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Widgets

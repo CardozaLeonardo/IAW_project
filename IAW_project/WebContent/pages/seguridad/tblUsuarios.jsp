@@ -150,6 +150,8 @@
       </li>
     </ul>
   </nav>
+  
+  
   <!-- /.navbar -->
      <!-- MENU -->
   <jsp:include page="../../WEB-INF/layouts/menu.jsp"></jsp:include>
@@ -792,6 +794,10 @@
 
       });
     });
+  </script>
+  
+  <script>
+      $("#usersNav").addClass("active");
   </script>
 </body>
 </html>

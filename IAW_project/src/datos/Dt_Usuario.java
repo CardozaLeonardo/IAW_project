@@ -38,7 +38,7 @@ public class Dt_Usuario {
 				tus.setPwd_tmp(rsUsuario.getString("pwd_tmp"));
 				tus.setEmail(rsUsuario.getString("email"));
 				tus.setEstado(rsUsuario.getInt("estado"));
-				String hostname = InetAddress.getLocalHost().getHostName();
+				//String hostname = InetAddress.getLocalHost().getHostName();
 				
 				
 				listarUsuario.add(tus);
@@ -50,6 +50,98 @@ public class Dt_Usuario {
 		}
 		
 		return listarUsuario;
+	}
+	
+	
+	public boolean guardarUser(Tbl_user tus)
+	{
+		boolean guardado = false;
+		
+		try
+		{
+			this.listUser();
+			rsUsuario.moveToInsertRow();
+			
+			rsUsuario.updateString("username", tus.getUsername());
+			rsUsuario.updateString("nombre1", tus.getNombre1());
+			rsUsuario.updateString("nombre2", tus.getNombre2());
+			rsUsuario.updateString("apellido1", tus.getApellido1());
+			rsUsuario.updateString("apellido2", tus.getApellido2());
+			rsUsuario.updateString("password", tus.getPwd());
+			rsUsuario.updateString("email", tus.getEmail());
+			
+			rsUsuario.updateInt("estado", 1);
+			rsUsuario.insertRow();
+			rsUsuario.moveToCurrentRow();
+			guardado = true;
+		}catch(Exception e)
+		{
+			System.err.println("ERROR guardarUser():" + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return guardado;
+	}
+	
+	public boolean modificarUser(Tbl_user tus) {
+		boolean modificado = false;
+		
+		try
+		{
+			this.listUser();
+			rsUsuario.beforeFirst();
+			
+			while(rsUsuario.next())
+			{
+				if(rsUsuario.getInt(1)==tus.getId_user())
+				{
+					//rsUsuario.updateString("username", tus.getUsername());
+					rsUsuario.updateString("nombre1", tus.getNombre1());
+					rsUsuario.updateString("nombre2", tus.getNombre2());
+					rsUsuario.updateString("apellido1", tus.getApellido1());
+					rsUsuario.updateString("apellido2", tus.getApellido2());
+					rsUsuario.updateString("password", tus.getPwd());
+					rsUsuario.updateString("email", tus.getEmail());
+					rsUsuario.updateInt("estado", 2);
+					rsUsuario.updateRow();
+					modificado = true;
+					break;
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			System.err.println("ERROR modificarUser():" + e.getMessage());
+		}
+		
+		return modificado;
+	}
+	
+	public boolean eliminarUser(Tbl_user tus)
+	{
+		boolean eliminado = false;
+		
+		try
+		{
+			this.listUser();
+			rsUsuario.beforeFirst();
+			
+			while(rsUsuario.next())
+			{
+				if(rsUsuario.getInt(1)==tus.getId_user())
+				{
+					rsUsuario.updateInt("estado",3);
+					rsUsuario.updateRow();
+					eliminado = true;
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			System.err.println("ERROR modificarUser():" + e.getMessage());
+		}
+		
+		return eliminado;
 	}
 	
 }
