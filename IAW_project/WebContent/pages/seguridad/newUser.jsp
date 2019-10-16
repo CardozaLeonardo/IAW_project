@@ -58,7 +58,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" method="POST" action="../../SL_usuario">
+                <input type="hidden" name="opc" id="opc" value="1">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="username">Nombre de usuario</label>
@@ -66,15 +67,29 @@
                   </div>
                   <div class="form-group">
                     <label for="name">Primer nombre:</label>
-                    <input name="name1" type="text" class="form-control" id="name1" placeholder="Primer nombre">
+                    <input name="name1" name="name1" type="text" class="form-control" id="name1" placeholder="Primer nombre">
                   </div>
                   <div class="form-group">
                     <label for="name2">Segundo nombre: </label>
-                    <input type="name2" class="form-control" id="name2" placeholder="Segundo nombre">
+                    <input type="text" name="name2" class="form-control" id="name2" placeholder="Segundo nombre">
                   </div>
                   <div class="form-group">
                     <label for="apellido1">Primer apellido: </label>
-                    <input type="apellido1" class="form-control" id="apellido1" placeholder="Primer apellido">
+                    <input type="text" name="apellido1" class="form-control" id="apellido1" placeholder="Primer apellido">
+                  </div>
+                  <div class="form-group">
+                    <label for="apellido2">Segundo apellido: </label>
+                    <input type="text" class="form-control" id="apellido2" name="apellido2" placeholder="Segundo apellido">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="password">Contraseña: </label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Eje: lol@gmail.com">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>

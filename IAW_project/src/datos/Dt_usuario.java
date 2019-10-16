@@ -1,6 +1,6 @@
 package datos;
 
-import java.net.InetAddress;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import entidades.Tbl_user;
 
 
-public class Dt_Usuario {
+public class Dt_usuario {
 	PoolConexion pc = PoolConexion.getInstance();
 	Connection c = PoolConexion.getConnection();
 	private ResultSet rsUsuario;

@@ -222,25 +222,24 @@
                   <td>U</td>
                 </tr>
                 <%
-                 
-                Dt_Usuario dtus = new Dt_Usuario();
-                
-                ArrayList<Tbl_user> listaUsuarios = dtus.listUser();
-                
-                String nombreCompleto = "";
-                String nombre2="";
-                String apellido2="";
-                String apellidos="";
-                String estado = "";
-                
-                for(Tbl_user tus : listaUsuarios)
-                {
-                	nombre2 = tus.getNombre2();
-                	nombre2=nombre2==null?" ":nombre2;
-                	apellido2=apellido2==null?" ":apellido2;
-                	nombreCompleto = tus.getNombre1() + " " + tus.getNombre2();
-                	apellidos = tus.getApellido1() + " " + tus.getApellido2();
-                	estado = tus.getEstado()==1||tus.getEstado()==2?"ACTIVO":"";
+                	Dt_usuario dtus = new Dt_usuario();
+                                
+                                ArrayList<Tbl_user> listaUsuarios = dtus.listUser();
+                                
+                                String nombreCompleto = "";
+                                String nombre2="";
+                                String apellido2="";
+                                String apellidos="";
+                                String estado = "";
+                                
+                                for(Tbl_user tus : listaUsuarios)
+                                {
+                                	nombre2 = tus.getNombre2();
+                                	nombre2=nombre2==null?" ":nombre2;
+                                	apellido2=apellido2==null?" ":apellido2;
+                                	nombreCompleto = tus.getNombre1() + " " + tus.getNombre2();
+                                	apellidos = tus.getApellido1() + " " + tus.getApellido2();
+                                	estado = tus.getEstado()==1||tus.getEstado()==2?"ACTIVO":"";
                 %>
                 
                 <tr>
