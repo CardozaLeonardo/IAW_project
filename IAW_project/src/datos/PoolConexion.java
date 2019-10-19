@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class PoolConexion 
 {
-	// Cambio nuevo
+	// Cambio
 	// El patr�n Singleton exige que los atributos y los m�todos sean declarados en static y privados.
 	private static PoolConexion INSTANCE = null;  // Creando una instancia de PoolConexion en NULL
 	private static Connection con = null; // Crea un objeto de tipo Connection
