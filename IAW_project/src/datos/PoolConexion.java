@@ -18,7 +18,7 @@ public class PoolConexion
 	private static String user = "postgres";
 	private static String pass = "Usuario123#.";
 	
-	private PoolConexion() // Constructor de la clase
+	private PoolConexion() // Constructor de la clase PoolConexion
     {
 		inicializaDataSource(); // Instancia el DataSource (pool)
     }
