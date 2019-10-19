@@ -29,7 +29,8 @@ public class SL_usuario extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.sendRedirect("./pages/seguridad/tblUsuarios.jsp");
 	}
 
 	/**
@@ -52,6 +53,7 @@ public class SL_usuario extends HttpServlet {
 		   case 1:
 		   { 
 			   try {
+				 
 				   tus.setUsername(request.getParameter("username"));
 				   tus.setNombre1(request.getParameter("name1"));
 				   tus.setNombre2(request.getParameter("name2"));
@@ -73,10 +75,33 @@ public class SL_usuario extends HttpServlet {
 			   }
 			   
 		   }
+		    
+		   break;
 			   
 		   case 2:
 		   {
-		   
+			   try {
+				   tus.setId_user(Integer.parseInt(request.getParameter("idUser")));
+				   tus.setUsername(request.getParameter("username"));
+				   tus.setNombre1(request.getParameter("name1"));
+				   tus.setNombre2(request.getParameter("name2"));
+				   tus.setApellido1(request.getParameter("apellido1"));
+				   tus.setApellido2(request.getParameter("apellido2"));
+				   tus.setPwd(request.getParameter("password"));
+				   tus.setEmail(request.getParameter("email"));
+				   
+				   if(dtus.modificarUser(tus))
+				   {
+					   response.sendRedirect("./pages/seguridad/newUser.jsp?msj=1");
+				   }else {
+					   response.sendRedirect("./pages/seguridad/newUser.jsp?msj=2");
+				   }
+			   }
+			   catch(Exception e)
+			   {
+				  e.printStackTrace();
+				  //System.err.println("Error en ");
+			   }
 			   break;
 		   }
 		   

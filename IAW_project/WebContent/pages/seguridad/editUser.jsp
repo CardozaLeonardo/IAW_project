@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="entidades.Tbl_user,datos.Dt_usuario;" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Nuevo Usuario</title>
+<title>Editar Usuario</title>
 <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,6 +19,22 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
+
+<%
+
+  String idUser = "";
+  idUser = request.getParameter("userID");
+  idUser = idUser==null?"0":idUser;
+  
+  int user = 0;
+  user = Integer.parseInt(idUser);
+  
+  Tbl_user tus = new Tbl_user();
+  Dt_usuario dtus = new Dt_usuario();
+  
+  tus = dtus.obtenerUser(user);
+
+%>
 
 <!-- NAVBAR -->
   <jsp:include page="../../WEB-INF/layouts/topbar.jsp"></jsp:include>
@@ -59,27 +75,28 @@
               <!-- /.card-header -->
               <!-- form start -->
               <form role="form" method="POST" action="../../SL_usuario">
-                <input type="hidden" name="opc" id="opc" value="1">
+                <input type="hidden" name="opc" id="opc" value="2">
+                <input type="hidden" name="idUser" id="idUser" value="<%=tus.getId_user() %>">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="username">Nombre de usuario</label>
-                    <input name="username" type="text" class="form-control" id="username" placeholder="Ingrese su nombre de usuario">
+                    <input name="username" type="text" class="form-control" value="<%=tus.getUsername() %>" id="username" placeholder="Ingrese su nombre de usuario">
                   </div>
                   <div class="form-group">
                     <label for="name">Primer nombre:</label>
-                    <input name="name1" name="name1" type="text" class="form-control" id="name1" placeholder="Primer nombre">
+                    <input name="name1" name="name1" type="text" value="<%=tus.getNombre1() %>" class="form-control" id="name1" placeholder="Primer nombre">
                   </div>
                   <div class="form-group">
                     <label for="name2">Segundo nombre: </label>
-                    <input type="text" name="name2" class="form-control" id="name2" placeholder="Segundo nombre">
+                    <input type="text" name="name2" class="form-control" value="<%=tus.getNombre2() %>" id="name2" placeholder="Segundo nombre">
                   </div>
                   <div class="form-group">
                     <label for="apellido1">Primer apellido: </label>
-                    <input type="text" name="apellido1" class="form-control" id="apellido1" placeholder="Primer apellido">
+                    <input type="text" name="apellido1" class="form-control" value="<%=tus.getApellido1() %>" id="apellido1" placeholder="Primer apellido">
                   </div>
                   <div class="form-group">
                     <label for="apellido2">Segundo apellido: </label>
-                    <input type="text" class="form-control" id="apellido2" name="apellido2" placeholder="Segundo apellido">
+                    <input type="text" class="form-control" id="apellido2" value="<%=tus.getApellido2() %>" name="apellido2" placeholder="Segundo apellido">
                   </div>
                   
                   <div class="form-group">
@@ -89,7 +106,7 @@
                   
                   <div class="form-group">
                     <label for="email">Email: </label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Eje: lol@gmail.com">
+                    <input type="email" name="email" class="form-control" id="email" value="<%=tus.getEmail() %>" placeholder="Eje: lol@gmail.com">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>
@@ -111,7 +128,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
               </form>
             </div>

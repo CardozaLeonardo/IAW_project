@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 public class PoolConexion 
 {
+	// Cambio nuevo
 	// El patrï¿½n Singleton exige que los atributos y los mï¿½todos sean declarados en static y privados.
 	private static PoolConexion INSTANCE = null;  // Creando una instancia de PoolConexion en NULL
 	private static Connection con = null; // Crea un objeto de tipo Connection
@@ -41,7 +42,7 @@ public class PoolConexion
 	
 	
 
-	 public final void inicializaDataSource() // Este método asigna los valores de fabrica para la creacion del origen de datos de conexion
+	 public final void inicializaDataSource() // Este mï¿½todo asigna los valores de fabrica para la creacion del origen de datos de conexion
 	    {
 
 		 	org.apache.commons.dbcp.BasicDataSource basicDataSource = new org.apache.commons.dbcp.BasicDataSource();

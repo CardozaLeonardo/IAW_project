@@ -249,7 +249,10 @@
                   <td><%=tus.getUsername() %></td>
                   <td><%=tus.getEmail() %></td>
                   <td><%=estado %></td>
-                  <td>---</td>
+                  <td>
+                     <a href="./editUser.jsp?userID=<%=tus.getId_user() %>"><i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Editar user"></i></a>
+                     
+                  </td>
                 </tr>
                 
                 <%
@@ -797,6 +800,11 @@
   
   <script>
       $("#usersNav").addClass("active");
+      function toolt () {
+    	  $('[data-toggle="tooltip"]').tooltip();
+    	}
+      
+      toolt();
   </script>
 </body>
 </html>
